@@ -1,0 +1,175 @@
+# Copyright (C) 2026 Radish Concepts
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Radish Changelog 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/radish-changelog\n"
+"Last-Translator: Radish Concepts <info@radishconcepts.com>\n"
+"Language-Team: Radish Concepts <info@radishconcepts.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-09T10:21:36+00:00\n"
+"PO-Revision-Date: 2026-09-09 12:00+0100\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: radish-changelog\n"
+
+#. Plugin Name of the plugin
+#: radish-changelog.php
+msgid "Radish Changelog"
+msgstr "Radish Changelog"
+
+#. Description of the plugin
+#: radish-changelog.php
+msgid "Release changelog from CHANGELOG.md: dashboard widget, admin page, release command and release e-mails."
+msgstr "Release-changelog vanuit CHANGELOG.md: dashboard-widget, beheerpagina, release-commando en release-e-mails."
+
+#. Author of the plugin
+#: radish-changelog.php
+msgid "Radish Concepts"
+msgstr "Radish Concepts"
+
+#: src/Admin/Page.php:36
+#: src/Admin/Page.php:37
+#: templates/page.php:20
+msgid "Changelog"
+msgstr "Wijzigingen"
+
+#: src/Admin/Page.php:46
+msgid "Sorry, you are not allowed to access this page."
+msgstr "Sorry, je hebt geen toestemming om deze pagina te bekijken."
+
+#: src/Admin/Page.php:89
+msgid "Changes"
+msgstr "Wijzigingen"
+
+#: src/Admin/Page.php:90
+msgid "Updates"
+msgstr "Updates"
+
+#: src/Admin/Page.php:91
+msgid "Inventory"
+msgstr "Inventaris"
+
+#: src/Admin/Dashboard_Widget.php:41
+msgid "Latest release"
+msgstr "Laatste release"
+
+#: src/Admin/Subscription.php:72
+msgid "Sorry, you are not allowed to do that."
+msgstr "Sorry, dat mag je niet doen."
+
+#: src/Cli/Release_Builder.php:134
+msgid "new"
+msgstr "nieuw"
+
+#: src/Cli/Release_Builder.php:138
+msgid "removed"
+msgstr "verwijderd"
+
+#. translators: %s: comma-separated list of ticket keys that stayed bare.
+#: src/Cli/Commands/Release_Command.php:279
+#, php-format
+msgid "No title found for: %s."
+msgstr "Geen titel gevonden voor: %s."
+
+#. translators: %s: the Jira failure reason (HTTP status or a short description); never credentials.
+#: src/Cli/Commands/Release_Command.php:319
+#, php-format
+msgid "Jira request failed: %s."
+msgstr "Jira-verzoek mislukt: %s."
+
+#: src/Cli/Commands/Release_Command.php:322
+msgid "Check JIRA_EMAIL/JIRA_API_TOKEN or ~/.config/radish-changelog/jira.json."
+msgstr "Controleer JIRA_EMAIL/JIRA_API_TOKEN of ~/.config/radish-changelog/jira.json."
+
+#: src/Cli/Commands/Init_Command.php:63
+msgid "Baseline"
+msgstr "Nulmeting"
+
+#: templates/widget.php:19
+#: templates/page.php:30
+msgid "There is no changelog yet."
+msgstr "Er is nog geen changelog."
+
+#. translators: %d: number of additional tickets not shown.
+#: templates/widget.php:49
+#, php-format
+msgid "and %d more"
+msgstr "en nog %d"
+
+#. translators: %d: number of updates in this release.
+#: templates/widget.php:63
+#, php-format
+msgid "%d update"
+msgid_plural "%d updates"
+msgstr[0] "%d update"
+msgstr[1] "%d updates"
+
+#: templates/widget.php:72
+msgid "View the full changelog"
+msgstr "Bekijk de volledige changelog"
+
+#: templates/page.php:24
+msgid "Your subscription has been updated."
+msgstr "Je inschrijving is bijgewerkt."
+
+#: templates/page.php:63
+msgid "Current versions"
+msgstr "Huidige versies"
+
+#: templates/page.php:67
+msgid "Name"
+msgstr "Naam"
+
+#: templates/page.php:68
+msgid "Version"
+msgstr "Versie"
+
+#: templates/page.php:73
+msgid "WordPress"
+msgstr "WordPress"
+
+#: templates/page.php:92
+msgid "Unsubscribe"
+msgstr "Afmelden"
+
+#: templates/page.php:93
+msgid "Keep me posted"
+msgstr "Houd mij op de hoogte"
+
+#. translators: 1: site name, 2: release name
+#: src/Notify/Mailer.php:49
+#, php-format
+msgid "[%1$s] New release: %2$s"
+msgstr "[%1$s] Nieuwe release: %2$s"
+
+#. translators: %s: release name
+#: src/Notify/Mailer.php:59
+#, php-format
+msgid "A new release, %s, is now live."
+msgstr "Er is een nieuwe release, %s, live gegaan."
+
+#. translators: %s: release date
+#: src/Notify/Mailer.php:67
+#, php-format
+msgid "Date: %s"
+msgstr "Datum: %s"
+
+#: src/Notify/Mailer.php:75
+msgid "Changes:"
+msgstr "Wijzigingen:"
+
+#. translators: %s: URL of the changelog admin page
+#: src/Notify/Mailer.php:84
+#, php-format
+msgid "View the full changelog: %s"
+msgstr "Bekijk de volledige changelog: %s"
+
+#. translators: %s: URL of the changelog admin page
+#: src/Notify/Mailer.php:91
+#, php-format
+msgid "You are receiving this because you subscribed on that page. You can unsubscribe there at any time: %s"
+msgstr "Je ontvangt dit omdat je je op die pagina hebt ingeschreven. Je kunt je daar op elk moment weer afmelden: %s"
