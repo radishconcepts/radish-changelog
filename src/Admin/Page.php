@@ -70,7 +70,7 @@ final class Page {
 	 * (including it being absent) is untrusted and ignored; it never
 	 * triggers a state change, only a notice.
 	 */
-	private static function show_subscribed_notice(): bool {
+	public static function show_subscribed_notice(): bool {
 		if ( ! isset( $_GET['radish-changelog-updated'] ) ) {
 			return false;
 		}

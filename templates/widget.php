@@ -12,9 +12,15 @@ use RadishConcepts\Changelog\Plugin;
 /**
  * @var ?Release $release
  * @var string $jira_host
+ * @var bool $is_subscribed
+ * @var bool $show_subscribed_notice
  */
 ?>
 <div class="radish-changelog-widget">
+	<?php if ( $show_subscribed_notice ) { ?>
+		<p class="radish-changelog-notice"><strong><?php esc_html_e( 'Your subscription has been updated.', Plugin::textdomain() ); ?></strong></p>
+	<?php } ?>
+
 	<?php if ( null === $release ) { ?>
 		<p><?php esc_html_e( 'There is no changelog yet.', Plugin::textdomain() ); ?></p>
 	<?php } else { ?>
@@ -73,4 +79,9 @@ use RadishConcepts\Changelog\Plugin;
 			</a>
 		</p>
 	<?php } ?>
+
+	<?php
+	$origin = 'widget';
+	require Plugin::path( 'templates/subscribe-form.php' );
+	?>
 </div>

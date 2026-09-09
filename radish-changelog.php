@@ -3,7 +3,7 @@
  * Plugin Name:       Radish Changelog
  * Plugin URI:        https://github.com/radishconcepts/radish-changelog
  * Description:       Release changelog from CHANGELOG.md: dashboard widget, admin page, release command and release e-mails.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Requires at least: 6.4
  * Requires PHP:      8.2
  * Author:            Radish Concepts
@@ -43,7 +43,7 @@ Plugin::bootstrap(
 	__FILE__,
 	[
 		'name'       => 'Radish Changelog',
-		'version'    => '1.0.1',
+		'version'    => '1.1.0',
 		'textdomain' => 'radish-changelog',
 	]
 );

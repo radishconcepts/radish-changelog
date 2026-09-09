@@ -61,7 +61,9 @@ final class Dashboard_Widget {
 			}
 		}
 
-		$jira_host = Page::jira_host( $changelog_path );
+		$jira_host              = Page::jira_host( $changelog_path );
+		$is_subscribed          = Subscription::instance()->is_subscribed( get_current_user_id() );
+		$show_subscribed_notice = Page::show_subscribed_notice();
 
 		require Plugin::path( 'templates/widget.php' );
 	}

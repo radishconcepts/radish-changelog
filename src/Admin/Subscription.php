@@ -11,8 +11,9 @@ use WP_User;
 
 /**
  * Self-service subscription to release e-mails, stored as user-meta. The
- * only entry point is the "Keep me posted" / "Unsubscribe" form at the
- * bottom of templates/page.php, posted to admin-post.php.
+ * only entry point is the "Keep me posted" / "Unsubscribe" form in
+ * templates/subscribe-form.php (shown on the Changelog page and in the
+ * dashboard widget), posted to admin-post.php.
  */
 final class Subscription {
 
@@ -77,7 +78,12 @@ final class Subscription {
 
 		$this->set( get_current_user_id(), '1' === $subscribe );
 
-		wp_safe_redirect( add_query_arg( 'radish-changelog-updated', '1', admin_url( 'index.php?page=radish-changelog' ) ) );
+		// Back to where the form was submitted from: the dashboard widget or
+		// the Changelog page. Anything else falls back to the page.
+		$origin = isset( $_POST['origin'] ) ? sanitize_text_field( wp_unslash( $_POST['origin'] ) ) : 'page';
+		$target = 'widget' === $origin ? admin_url( 'index.php' ) : admin_url( 'index.php?page=radish-changelog' );
+
+		wp_safe_redirect( add_query_arg( 'radish-changelog-updated', '1', $target ) );
 		exit;
 	}
 

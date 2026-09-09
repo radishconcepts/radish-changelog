@@ -82,16 +82,8 @@ use RadishConcepts\Changelog\Plugin;
 		</tbody>
 	</table>
 
-	<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-		<?php wp_nonce_field( 'radish_changelog_subscribe' ); ?>
-		<input type="hidden" name="action" value="radish_changelog_subscribe" />
-		<input type="hidden" name="subscribe" value="<?php echo esc_attr( $is_subscribed ? '0' : '1' ); ?>" />
-		<?php
-		submit_button(
-			$is_subscribed
-				? __( 'Unsubscribe', Plugin::textdomain() )
-				: __( 'Keep me posted', Plugin::textdomain() )
-		);
-		?>
-	</form>
+	<?php
+	$origin = 'page';
+	require Plugin::path( 'templates/subscribe-form.php' );
+	?>
 </div>
