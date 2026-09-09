@@ -4,10 +4,38 @@ Losse, herbruikbare WordPress-plugin (Variant C, standalone-minimaal) die per re
 
 ## Installatie in een ander project
 
-1. Kopieer de map `radish-changelog` naar `wp-content/plugins/` van het doelproject (of, zodra de plugin op een eigen Composer-package staat, voeg die toe aan `composer.json` en installeer hem daarmee).
-2. Maak `/changelog.json` aan in de repo-root (naast waar `/CHANGELOG.md` komt te staan), met de sleutels uit de referentie hieronder. Alle sleutels zijn optioneel; alles wat je weglaat valt terug op de standaardwaarde.
-3. Activeer de plugin: `wp plugin activate radish-changelog`.
-4. Maak de eerste changelog-entry: `wp changelog init`.
+De plugin is een Composer-package (`radishconcepts/radish-changelog`, type `wordpress-plugin`) in een privé GitHub-repo. Installeren en updaten loopt via Composer; de pluginmap zelf hoort niet in git van het doelproject.
+
+1. Voeg de repository en de dependency toe aan de `composer.json` van het project. De repo is privé, dus gebruik de SSH-URL; de deploy-user heeft die toegang doorgaans al voor de projectrepo zelf.
+
+   ```json
+   {
+     "repositories": [
+       { "type": "vcs", "url": "git@github.com:radishconcepts/radish-changelog.git" }
+     ],
+     "require": {
+       "radishconcepts/radish-changelog": "^1.0"
+     },
+     "extra": {
+       "installer-paths": {
+         "app/www/wp-content/plugins/{$name}/": [ "type:wordpress-plugin" ]
+       }
+     },
+     "config": {
+       "allow-plugins": { "composer/installers": true }
+     }
+   }
+   ```
+
+   Pas het pad in `installer-paths` aan op de webroot van het project (`app/www`, `www`, `public`). Staat er al een `installer-paths`-regel voor `type:wordpress-plugin`, dan is die genoeg.
+
+2. Negeer de geïnstalleerde map in `.gitignore` van het project, bijvoorbeeld `/app/www/wp-content/plugins/radish-changelog/`.
+3. Installeer: `composer install` (of `composer update radishconcepts/radish-changelog`). Op servers die met Deployer uitrollen gebeurt dit vanzelf in `deploy:vendors`.
+4. Maak `/changelog.json` aan in de repo-root (naast waar `/CHANGELOG.md` komt te staan), met de sleutels uit de referentie hieronder. Alle sleutels zijn optioneel; alles wat je weglaat valt terug op de standaardwaarde.
+5. Activeer de plugin, eenmalig per omgeving: `wp plugin activate radish-changelog`.
+6. Maak de eerste changelog-entry: `wp changelog init`.
+
+Updaten naar een nieuwe versie: in deze repo een nieuwe tag zetten (`git tag -a 1.0.1 -m "1.0.1" && git push origin 1.0.1`), daarna in het project `composer update radishconcepts/radish-changelog` en `composer.lock` committen.
 
 ### `changelog.json` referentie
 
